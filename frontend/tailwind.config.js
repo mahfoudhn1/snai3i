@@ -13,7 +13,8 @@ module.exports = {
     },
     fontFamily:{
       lora: "'lora', serif",
-      roboto : "'Roboto', sans-serif"
+      roboto : "'Roboto', sans-serif",
+      Lugrasimo: "'Lugrasimo', cursive"
 
     },
     colors: {
