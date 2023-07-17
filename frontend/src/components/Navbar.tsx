@@ -1,32 +1,51 @@
 import React from 'react'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faSearch } from '@fortawesome/free-solid-svg-icons'
+
 function Navbar() {
   return (
     <>
-  <nav className="bg-white border-gray-200 border-b-2">
+  <nav className="bg-transparent pl-20 pr-20 z-0 fixed w-full ">
   <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
   <a href="" className="flex items-center">
-   <h2 className="text-dark text-2xl ">Snai3i</h2>
+   <h2 className="text-white font-extrabold text-2xl ">Snai3i</h2>
   </a>
-  <div className="flex md:order-1">
-    <button type="button" data-collapse-toggle="navbar-search" aria-controls="navbar-search" aria-expanded="false" 
-    className="md:hidden text-gray-500  hover:bg-gray-100 focus:outline-none focus:ring-4 focus:ring-gray-200  rounded-lg text-sm p-2.5 mr-1" >
-    <FontAwesomeIcon icon={faSearch} />
-      <span className="sr-only">Search</span>
-    </button>
-    <div className="relative hidden md:block">
-      <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-      <FontAwesomeIcon icon={faSearch} />
-        <span className="sr-only">Search icon</span>
-      </div>
-      <input type="text" id="search-navbar" className="block w-full p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 " placeholder="Search..."/>
-    </div>
-    <button data-collapse-toggle="navbar-search" type="button" 
-    className="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 " aria-controls="navbar-search" aria-expanded="false">
-      <span className="sr-only">Open menu</span>
-      <svg className="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path></svg>
-    </button>
+  <div className="flex md:order-1 bg-night p-2 pl-4 pr-4 rounded-full">
+{/* Nav links */}
+    <ul className="space-x-4">
+      <li className="inline-block bg-dim-grey p-2 rounded-full">
+        <a href="/" className="text-white hover:text-gray-200">
+          Home
+        </a>
+      </li>
+      <li className="inline-block">
+        <a href="/services" className="text-white hover:text-gray-200">
+          Jobs
+        </a>
+      </li>
+      <li className="inline-block">
+        <a href="/find-workers" className="text-white hover:text-gray-200">
+          Find Workers
+        </a>
+      </li>
+      <li className="inline-block">
+        <a href="/post-job" className="text-white hover:text-gray-200">
+          Service
+        </a>
+      </li>
+
+      <li className="inline-block">
+        <a href="/about" className="text-white hover:text-gray-200">
+          About Us
+        </a>
+      </li>
+      <li className="inline-block">
+        <a href="/contact" className="text-white hover:text-gray-200">
+          Contact
+        </a>
+      </li>
+      {/* You can include Sign Up, Log In, Dashboard, etc. links here */}
+    </ul>
+    
+
   </div>
 
     <div className="hidden w-full md:flex md:w-auto md:order-2">
