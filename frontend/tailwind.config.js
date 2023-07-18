@@ -2,7 +2,8 @@
 
 module.exports = {
   content: [
-    "./src/**/*.{js,jsx,ts,tsx,html,css}"
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}"
   ],
   theme: {
     extend: {
@@ -24,7 +25,7 @@ module.exports = {
       'purple': '#3f3cbb',
       'night': '#2b2b2b',
       'metal': '#565584',
-      'tahiti': '#3ab7bf',
+      'grey': '#404145',
       'dim-grey': '#696969',
       'bubble-gum': '#ff77e9',
       'bermuda': '#78dcca',

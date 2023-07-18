@@ -21,7 +21,7 @@ function About() {
         };
       }, []);
   return (
-    <div id='card' className="flex flex-col w-full p-4 mt-8 h-screen overflow-hidden">
+    <div id='card' className="flex flex-col w-full p-4 mt-8  overflow-hidden">
         <h1 className='font-lora text-2xl text-center mb-8'> About Us </h1>
         <div className='flex justify-center p-4' >
             <div className={`w-1/2 ${isAboutVisible  ? 'slide-from-right-enter-active' : 'slide-from-right-enter'}   `}>
