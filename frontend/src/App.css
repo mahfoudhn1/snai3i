@@ -45,7 +45,25 @@
   transition: transform 0.7s;
 }
 
+.slick-custom-arrow {
+  -webkit-box-shadow: 1px 1px 16px -3px rgba(0,0,0,0.93); 
+  box-shadow: 1px 1px 16px -3px rgba(0,0,0,0.93);
+}
 
+/* Custom slick arrow positioning */
+.slick-prev-custom {
+  position: absolute;
+  top: 50%;
+  display: block;
+  width: 20px;
+  height: 20px;
+  transform: translate(0, -50%);
+  cursor: pointer;
+}
+
+.slick-next-custom{
+  right: 10px;
+}
 
 @keyframes App-logo-spin {
   from {

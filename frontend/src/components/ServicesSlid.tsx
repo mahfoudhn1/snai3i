@@ -1,65 +1,60 @@
-import React, {useState} from 'react'
-import Carousel from "react-multi-carousel";
-import "react-multi-carousel/lib/styles.css";
+import React, { useState, useEffect } from 'react'
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons'
 import Card from './Card';
 
 
 
-function ServicesSlid() {
-  
-  const responsive = {
-    desktop: {
-      breakpoint: { max: 3000, min: 1024 },
-      items: 5,
-      slidesToSlide: 3 // optional, default to 1.
-    },
-    tablet: {
-      breakpoint: { max: 1024, min: 464 },
-      items: 2,
-      slidesToSlide: 2 // optional, default to 1.
-    },
-    mobile: {
-      breakpoint: { max: 464, min: 0 },
-      items: 1,
-      slidesToSlide: 1 // optional, default to 1.
-    }
+
+
+const ServicesSlid = () =>{
+
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % 6);
   };
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + 6) % 6);
+  };
+
 
   return (
     
-    <div className='carousel px-10 mt-8 m-2 rounded-lg border border-grey' >
-      <div className='top pt-4'>
-        <h1 className='font-lora text-2xl'> web services </h1>
+    <div className='carousel px-10 mt-8 m-2 rounded-lg shadow-3xl	' >
+      <div className='top pt-4 flex justify-between'>
+        <h1 className='font-lora text-2xl mt-4'> web services </h1>
+        <div className="carousel-buttons mt-4">
+        <button
+          className=" text-dark px-4 py-2 border rounded-full mr-2"
+          onClick={prevSlide}
+          >
+          <FontAwesomeIcon icon={faArrowLeft} />
+        </button>
+        <button
+          className="text-dark px-4 py-2 border rounded-full"
+          onClick={nextSlide}
+          >
+          <FontAwesomeIcon icon={faArrowRight} />
+        </button>
+      </div>
+      </div>
+        <div className='flex'>
+          <Card/>
+          <Card/>
+          <Card/>
+          <Card/>
+          <Card/>        
+        </div>
         
       </div>
-    <Carousel itemClass="carousel-item-padding-10-px"
+     
 
-              removeArrowOnDeviceType={["tablet", "mobile"]}
-              responsive={responsive}>
-      <div>
-        <Card/>
-      </div>
-      <div>
-        <Card/>
-      </div>
-      <div>
-        <Card/>
-      </div>
-      <div>
-        <Card/>
-      </div>
-      <div>
-        <Card/>
-      </div>
-      <div>
-        <Card/>
-      </div>
-      <div>
-        <Card/>
-      </div>
 
-    </Carousel>
-    </div>
+   
+
 
 
   )
