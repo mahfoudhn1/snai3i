@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react'
-import instractor1 from '../images/instractor1.jpg'
-import instractor2 from '../images/instractor2.jpg'
-import instractor3 from '../images/instractor3.jpg'
+import instractor1 from '../../images/instractor1.jpg'
+import instractor2 from '../../images/instractor2.jpg'
+import instractor3 from '../../images/instractor3.jpg'
 import Slider, {Settings } from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';

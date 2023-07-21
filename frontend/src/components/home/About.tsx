@@ -1,5 +1,5 @@
 import React, {useState,useEffect} from 'react'
-import worker from '../images/worker.jpg'
+import worker from '../../images/worker.jpg'
 
 
 

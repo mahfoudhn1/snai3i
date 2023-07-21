@@ -5,7 +5,7 @@ import { faStar } from '@fortawesome/free-solid-svg-icons'
 import Slider, {Settings, CustomArrowProps, SwipeDirection } from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import {data} from '../jsondata/data';
+import {data} from '../../jsondata/data';
 import Card from './Card'
 
 function Verifiedservices() {
@@ -55,6 +55,32 @@ function Verifiedservices() {
       speed: 500,
       slidesToShow: 5,
       slidesToScroll: 1,
+      responsive: [
+        {
+          breakpoint: 1024,
+          settings: {
+            slidesToShow: 3,
+            slidesToScroll: 3,
+            infinite: true,
+            dots: true
+          }
+        },
+        {
+          breakpoint: 600,
+          settings: {
+            slidesToShow: 2,
+            slidesToScroll: 2,
+            initialSlide: 2
+          }
+        },
+        {
+          breakpoint: 480,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1
+          }
+        }
+      ],
       beforeChange: handleBeforeChange,
       prevArrow: <CustomPrevArrow />, // Custom previous arrow component
       nextArrow: <CustomNextArrow />, // Custom next arrow component

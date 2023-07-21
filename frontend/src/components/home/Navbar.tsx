@@ -20,16 +20,16 @@ function Navbar() {
 
   return (
     <>
-  <nav className={` pl-20 pr-20 z-1000 fixed w-full ${
-        scrolling ? "bg-white" : "bg-transparent"
+  <nav className={` navbar pl-20 pr-20 fixed w-full ${
+        scrolling ? "transition ease-in-out delay-150 bg-white drop-shadow-md" : "bg-transparent"
       } ` }>
-  <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+  <div className="max-w-screen-xl  flex flex-wrap items-center justify-between mx-auto p-4">
   <a href="" className="flex items-center">
-   <h2 className="text-white font-extrabold text-2xl ">Snai3i</h2>
+   <h2 className={` font-extrabold text-2xl ${scrolling ? "transition ease-in-out delay-150 text-night": "text-white" }`}>Snai3i</h2>
   </a>
-  <div className="flex md:order-1 bg-night p-2 pl-4 pr-4 rounded-full">
-{/* Nav links */}
-    <ul className="space-x-4">
+  <div className="flex md:order-1 z-1000 bg-night p-2 pl-4 pr-4 rounded-full">
+
+    <ul className="space-x-4 ">
       <li className="inline-block bg-dim-grey p-2 rounded-full">
         <a href="/" className="text-white hover:text-gray-200">
           Home

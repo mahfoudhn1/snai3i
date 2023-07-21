@@ -7,7 +7,7 @@ function Hero() {
     <div className='w-full h-screen  bg-hero-pattern bg-cover bg-center bg-fixed'>
         <div className='absolute h-1/2 flex flex-col justify-between top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/3'>
           <div className='text-center flex flex-col h-1 justify-between'>
-          <h1 className=' text-white text-5xl font-lora ' > Looking For A Skilled Worker ! </h1>
+          <h1 className=' text-white text-5xl font-lora ' > Looking For A Skilled <br/> Worker ! </h1>
           <p className='text-white font-roboto mt-2'>  Empower your projects and dreams with our platform, <br/> the ultimate destination for finding skilled workers ready to bring your vision to life. !  </p>
           </div>
 <form>

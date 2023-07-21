@@ -55,6 +55,32 @@ const [currentSlide, setCurrentSlide] = useState(0);
     speed: 500,
     slidesToShow: 5,
     slidesToScroll: 1,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3,
+          infinite: true,
+          dots: true
+        }
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          initialSlide: 2
+        }
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1
+        }
+      }
+    ],
     beforeChange: handleBeforeChange,
     prevArrow: <CustomPrevArrow />, // Custom previous arrow component
     nextArrow: <CustomNextArrow />, // Custom next arrow component
