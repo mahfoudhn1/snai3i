@@ -64,6 +64,18 @@
 .slick-next-custom{
   right: 10px;
 }
+.custom-dots{
+  bottom: 3em !important;
+  left: 5em ;
+  text-align: start !important;
+
+
+}
+/*  */
+.custom-dots li button:before {
+  font-size: 18px !important;
+}
+
 
 @keyframes App-logo-spin {
   from {

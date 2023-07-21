@@ -6,16 +6,20 @@ import About from './components/About';
 import ServicesSlid from './components/ServicesSlid';
 import MostPopular from './components/MostPopular';
 import Verifiedservices from './components/Verifiedservices';
+import Banner from './components/Banner';
+import Footer from './components/Footer';
 
 function App() {
   return (
     <>
     <Navbar/>
     <Hero/>
-    <About/>
     <ServicesSlid/>
     <MostPopular/>
     <Verifiedservices/>
+    <Banner/>
+    <About/>
+    <Footer/>
     </>
   );
 }

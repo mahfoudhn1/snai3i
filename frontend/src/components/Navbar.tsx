@@ -1,9 +1,28 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 
 function Navbar() {
+  const [scrolling, setScrolling] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 0) {
+        setScrolling(true);
+      } else {
+        setScrolling(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
     <>
-  <nav className="bg-transparent pl-20 pr-20 z-0 fixed w-full ">
+  <nav className={` pl-20 pr-20 z-1000 fixed w-full ${
+        scrolling ? "bg-white" : "bg-transparent"
+      } ` }>
   <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
   <a href="" className="flex items-center">
    <h2 className="text-white font-extrabold text-2xl ">Snai3i</h2>
