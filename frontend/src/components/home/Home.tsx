@@ -11,7 +11,7 @@ import Verifiedservices from './Verifiedservices'
 function Home() {
   return (
     <>
-        <Navbar/>
+
         <Hero/>
         <ServicesSlid/>
         <MostPopular/>

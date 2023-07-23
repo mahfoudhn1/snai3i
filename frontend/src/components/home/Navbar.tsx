@@ -1,7 +1,11 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect } from 'react'
+import { NavLink } from "react-router-dom";
+import {useLocation} from "react-router-dom";
 
 function Navbar() {
   const [scrolling, setScrolling] = useState(false);
+const location = useLocation();
+console.log(location.pathname );
 
   useEffect(() => {
     const handleScroll = () => {
@@ -22,46 +26,69 @@ function Navbar() {
     <>
   <nav className={` navbar pl-20 pr-20 fixed w-full ${
         scrolling ? "transition ease-in-out delay-150 bg-white drop-shadow-md" : "bg-transparent"
-      } ` }>
+      } ${ location.pathname !='/' ? "transition ease-in-out delay-150 bg-white drop-shadow-md" : "bg-transparent" }` }>
   <div className="max-w-screen-xl  flex flex-wrap items-center justify-between mx-auto p-4">
   <a href="" className="flex items-center">
-   <h2 className={` font-extrabold text-2xl ${scrolling ? "transition ease-in-out delay-150 text-night": "text-white" }`}>Snai3i</h2>
+   <h2 className={` font-extrabold text-2xl 
+   ${scrolling || location.pathname !="/" ? "transition ease-in-out delay-150 text-night": "text-white" }
+   `}>Snai3i</h2>
   </a>
   <div className="flex md:order-1 z-1000 bg-night p-2 pl-4 pr-4 rounded-full">
 
     <ul className="space-x-4 ">
-      <li className="inline-block bg-dim-grey p-2 rounded-full">
-        <a href="/" className="text-white hover:text-gray-200">
-          Home
-        </a>
-      </li>
-      <li className="inline-block">
-        <a href="/services" className="text-white hover:text-gray-200">
-          Jobs
-        </a>
-      </li>
-      <li className="inline-block">
-        <a href="/find-workers" className="text-white hover:text-gray-200">
-          Find Workers
-        </a>
-      </li>
-      <li className="inline-block">
-        <a href="/post-job" className="text-white hover:text-gray-200">
-          Service
-        </a>
-      </li>
+    
+    <li className="inline-block">
+    <NavLink
+        to="/"
+        className={({ isActive, isPending }) =>
+        isPending ? "" : isActive ? "inline-block bg-dim-grey p-2 rounded-full text-white hover:text-grey-white" : "text-white hover:text-grey-white"
+      }
+      >
+        Home
+    </NavLink>
+    </li>
+    <li className="inline-block">
+    <NavLink
+        to="/jobs"
+        className={({ isActive, isPending }) =>
+        isPending ? "" : isActive ? "inline-block bg-dim-grey p-2 rounded-full text-white hover:text-text-grey-white" : "text-white hover:text-grey-white "
+      }
+      >
+        jobs
+    </NavLink>
+    </li>
+    <li className="inline-block">
+    <NavLink
+        to="/workers"
+        className={({ isActive, isPending }) =>
+        isPending ? "" : isActive ? "inline-block bg-dim-grey p-2 rounded-full text-white hover:text-text-grey-white" : "text-white hover:text-grey-white "
+      }
+      >
+        Find Workers
+    </NavLink>
+    </li>
+    <li className="inline-block">
+    <NavLink
+        to="/services"
+        className={({ isActive, isPending }) =>
+        isPending ? "" : isActive ? "inline-block bg-dim-grey p-2 rounded-full text-white hover:text-text-grey-white" : "text-white hover:text-grey-white "
+      }
+      >
+        Service
+    </NavLink>
+    </li>
+    <li className="inline-block">
+    <NavLink
+        to="/about"
+        className={({ isActive, isPending }) =>
+        isPending ? "" : isActive ? "inline-block bg-dim-grey p-2 rounded-full text-white hover:text-text-grey-white" : "text-white hover:text-grey-white "
+      }
+      >
+      About Us
 
-      <li className="inline-block">
-        <a href="/about" className="text-white hover:text-gray-200">
-          About Us
-        </a>
-      </li>
-      <li className="inline-block">
-        <a href="/contact" className="text-white hover:text-gray-200">
-          Contact
-        </a>
-      </li>
-      {/* You can include Sign Up, Log In, Dashboard, etc. links here */}
+    </NavLink>
+    </li>
+    
     </ul>
     
 
