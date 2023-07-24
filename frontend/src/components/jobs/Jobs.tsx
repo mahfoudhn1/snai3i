@@ -3,8 +3,13 @@ import React, {useState} from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSearch } from '@fortawesome/free-solid-svg-icons'
 
+import { Link } from 'react-router-dom'
+
 const Joboffer = ()=>{
   return(
+    
+    <Link to="2" >
+    
       <li className="shadow-3xl p-4 w-full rounded-lg cursor-pointer hover:bg-grey-white ">
           <h1 className=' font-lora font-bold text-night text-2xl capitalize cursor-pointer hover:text-grey hover:underline '>Full stack developer for part time job</h1>
           <div className="price flex text-sm  py-3 ">
@@ -22,6 +27,7 @@ const Joboffer = ()=>{
         <button className='bg-grey-2 px-4 py-2 font-roboto text-md shadow-2xl mx-2 rounded-2xl text-grey hover:bg-white hover:text-dark'>php</button>
       </div>
       </li>
+      </Link>
   )
 }
 
