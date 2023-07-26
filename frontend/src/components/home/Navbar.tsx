@@ -94,7 +94,7 @@ console.log(location.pathname );
 
   </div>
 
-    <div className="hidden w-full md:flex md:w-auto md:order-2">
+  <div className="w-full md:flex md:w-auto md:order-2">
         <div>
           <button type="button" className="flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800" id="user-menu-button" aria-expanded="false" aria-haspopup="true">
             <span className="sr-only">Open user menu</span>
