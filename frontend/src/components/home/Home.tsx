@@ -18,7 +18,7 @@ function Home() {
         <Verifiedservices/>
         <Banner/>
         <About/>
-        <Footer/>
+
     </>
   )
 }

@@ -1,6 +1,8 @@
 import React, {useState} from 'react'
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 import Card from '../home/Card';
 
 const WorkersList = () => {
@@ -95,7 +97,9 @@ const WorkersList = () => {
         </svg>
       </button>
       {isOpen && (
-        <div className="absolute px-2 flex mt-2 py-1 w-60 bg-white shadow-lg rounded-lg ">
+        <div className="absolute px-2 flex flex-col mt-2 py-1 w-60 bg-white shadow-lg rounded-lg ">
+          <div className="core flex">
+
           <div className="minprice w-1/2 mx-2 py-4">
             <label htmlFor="price font-roboto font-bold text-grey opacity-75">Min</label>
             <input type="number" className='py-3 px-2  w-full rounded-lg shadow-3xl' placeholder='any  $' />
@@ -104,20 +108,24 @@ const WorkersList = () => {
             <label htmlFor="price font-roboto font-bold text-grey opacity-75">Max</label>
             <input type="number" className='py-3 px-2  w-full rounded-lg shadow-3xl' placeholder='any  $' />
           </div>
-          
+          </div>
+          <button className='text-white bg-night py-2 px-4 rounded-lg ease-in delay-200 hover:bg-white hover:text-grey border border-white '>Apply</button>
+
         </div>
       )}
       <div>
-      <ul className='filters flex flex-col'>
-        <li className='mt-5'>
+
+        <div className='mt-5'>
           <select id="Level" className="bg-white text-grey py-3 px-4 rounded-lg focus:outline-none ">
             <option selected  className='bg-white font-roboto text-grey rounded-sm p-3'>filter Seller by</option>
             <option value="BS"  className='bg-white font-roboto text-grey rounded-sm p-3'>Best Seller</option>
             <option value="TR"  className='bg-white font-roboto text-grey rounded-sm p-3'> Top rating </option>
             <option value="MS"  className='bg-white font-roboto text-grey rounded-sm p-3'>Most selled </option>
           </select>
-        </li>
-        </ul>
+        </div>
+        <div className="mt-5">
+          <button className='text-white bg-night py-2 px-4 rounded-lg ease-in delay-200 hover:bg-white hover:text-grey border border-white '>Apply</button>
+        </div>
       </div>
         </div>
       </div>

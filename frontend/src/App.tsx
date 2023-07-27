@@ -6,6 +6,8 @@ import Jobs from './components/jobs/Jobs';
 import Navbar from './components/home/Navbar';
 import Jobpost from './components/jobs/Jobpost';
 import WorkersList from './components/workers/WorkersList';
+import Service from './components/workers/Service';
+import Footer from './components/home/Footer';
 
 function App() {
   return (
@@ -16,8 +18,9 @@ function App() {
       <Route path='/jobs' element={<Jobs/>} />
       <Route path='/jobs/:id' element={<Jobpost/>} />
       <Route path='/workers' element={<WorkersList/>} />
+      <Route path='/workers/:id' element={<Service/>} />
     </Routes>
-      
+      <Footer/>
     </>
   );
 }
