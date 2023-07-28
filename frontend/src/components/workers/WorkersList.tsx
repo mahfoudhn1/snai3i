@@ -18,7 +18,6 @@ const WorkersList = () => {
   ];
   const [offset, setoffset] = useState(0);
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedOption, setSelectedOption] = useState<Option | null>(null);;
 
   function handleChange (value:number){
     setoffset((value - 1) * 4);
@@ -29,11 +28,7 @@ const WorkersList = () => {
       // element in this array. see: https://reactjs.org/docs/lists-and-keys.html
       cards.push(<Card key={i} />);
   }
-  const handleOptionClick = (option:Option) => {
-    setSelectedOption(option);
-    setIsOpen(false);
-    
-  };
+
 
   return (
     <div className='flex w-full bg-grey-2'>
@@ -78,7 +73,7 @@ const WorkersList = () => {
           onClick={() => setIsOpen(!isOpen)}
           className="bg-white text-grey py-2 px-4 rounded-lg"
           >
-        {selectedOption ? selectedOption.label : 'Select an option'}
+       
         <svg
           className={`w-4 h-4 ml-2 inline ${
             isOpen ? 'transform rotate-180' : ''
