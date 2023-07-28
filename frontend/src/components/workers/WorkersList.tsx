@@ -73,7 +73,7 @@ const WorkersList = () => {
           onClick={() => setIsOpen(!isOpen)}
           className="bg-white text-grey py-2 px-4 rounded-lg"
           >
-       
+       <label htmlFor=""> Filter Price </label>
         <svg
           className={`w-4 h-4 ml-2 inline ${
             isOpen ? 'transform rotate-180' : ''
