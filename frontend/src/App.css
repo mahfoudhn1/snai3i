@@ -78,6 +78,26 @@
   font-size: 18px !important;
 }
 
+.ReactTags__tags{
+  color: grey;
+  margin-top: 1em;
+}
+.tag-wrapper{
+  background: #e4ebe4;
+  border-radius: 0.6em;
+  margin-left: 0.2em;
+  color: #282c34;
+  padding: 0.5em;
+}
+.ReactTags__tagInputField{
+  padding: 0.3em;
+  border-radius: 0.2em;
+  border : 1px solid #e4ebe4;
+}
+.ReactTags__tagInputField:focus{
+  outline: none;
+  box-shadow: 1px 0px 6px -3px rgba(0,0,0,0.6);
+}
 
 @keyframes App-logo-spin {
   from {

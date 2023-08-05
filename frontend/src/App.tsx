@@ -11,6 +11,7 @@ import Footer from './components/home/Footer';
 import Login from './components/authentication/Login';
 import Singup from './components/authentication/Singup';
 import Auth from './components/authentication/Auth';
+import Workpost from './components/workpost/Workpost';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
       <Route path='/jobs' element={<Jobs/>} />
       <Route path='/jobs/:id' element={<Jobpost/>} />
       <Route path='/workers' element={<WorkersList/>} />
+      <Route path='/postwork' element={<Workpost/>} />
       <Route path='/workers/:id' element={<Service/>} />
     </Routes>
 
