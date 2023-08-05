@@ -3,6 +3,7 @@ import team from '../../images/team.jpg'
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircle, faRadio } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Link } from 'react-router-dom';
 
 
 interface InputValues {
@@ -30,18 +31,11 @@ const Singup = () => {
     }
 
   return (
-    <div className="relative h-screen">
-    <div className="absolute inset-0">
-      <img src="https://images.pexels.com/photos/927022/pexels-photo-927022.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Background Image" 
-      className="w-full h-full object-cover" />
-    </div>
-    <div className="absolute inset-0 bg-gradient-to-r from-dark from-100% opacity-95"></div>
-    
-    <div className="absolute inset-0 flex left-10 top-1/3 w-1/3 max-[600px]:w-full max-[600px]:left-0 max-[600px]:p-4 p-8 -translate-y-1/3 text-white flex-col">
+    <div>
         <div className="textarea mb-8">
             <h1 className='text-xl text-gey-2 mb-4 '>Start looking for work</h1>
             <h1 className=' text-grey-2 text-3xl mb-4 font-black font-lora' > CREATE A NEW ACCOUNT </h1>
-            <h1 className='text-xl text-gey-2 '>Already a memeber ! <a className='cursor-pointer font-bold text-bubble-gum '>Sing In</a></h1>
+            <h1 className='text-xl text-gey-2 '>Already a memeber ! <Link to="/auth/login" className='cursor-pointer font-bold text-bubble-gum '>Sing In</Link></h1>
         </div>
         
         {/* inputs  */}
@@ -158,7 +152,6 @@ const Singup = () => {
             </div>           
     </div>
 
-    </div>
 
   </div>
   )

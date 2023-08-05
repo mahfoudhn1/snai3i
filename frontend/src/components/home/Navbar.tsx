@@ -29,11 +29,11 @@ function Navbar() {
     <>
   <nav className={` navbar pl-20 pr-20 fixed w-full ${
         scrolling ? "transition ease-in-out delay-150 bg-white drop-shadow-md" : "bg-transparent"
-      } ${ location.pathname !='/' && location.pathname !="/signup" ? "transition ease-in-out delay-150 bg-white drop-shadow-md" : "bg-transparent" }` }>
+      } ${ location.pathname !='/' && location.pathname.split('/').slice(1)[0] !="auth" ? "transition ease-in-out delay-150 bg-white drop-shadow-md" : "bg-transparent" }` }>
   <div className="max-w-screen-xl  flex flex-wrap items-center justify-between mx-auto p-4">
   <a href="" className="flex items-center">
    <h2 className={` font-extrabold text-2xl 
-   ${scrolling || location.pathname !="/" && location.pathname !="/signup" ? "transition ease-in-out delay-150 text-night": "text-white" }
+   ${scrolling || location.pathname !="/" && location.pathname.split('/').slice(1)[0] !="auth" ? "transition ease-in-out delay-150 text-night": "text-white" }
    `}>Snai3i</h2>
   </a>
   <div className="flex md:order-1 z-1000 bg-night p-2 pl-4 pr-4 rounded-full">
