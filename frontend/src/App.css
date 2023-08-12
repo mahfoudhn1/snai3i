@@ -93,6 +93,8 @@
   padding: 0.3em;
   border-radius: 0.2em;
   border : 1px solid #e4ebe4;
+  padding-left: 0.5rem !important; 
+  padding-top: 0.32rem !important;
 }
 .ReactTags__tagInputField:focus{
   outline: none;
