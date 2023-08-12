@@ -1,27 +1,27 @@
-import { faClose } from '@fortawesome/free-solid-svg-icons';
+import { faCircle, faClose } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, {useEffect, useState} from 'react'
 import { WithContext as ReactTags, Tag } from 'react-tag-input';
 
 
-interface TagesInput {
-  id:string,
-  text:string
-}
-interface ListInput{
-  text:string
-}
-interface JobInput {
-  title: string;
-  description: string;
-  price:number;
-  tags:TagesInput[]
-  items:string[]
-}
+interface requirements {
+    id:string,
+    text:string
+  }
 
-const Workpost = () => {
+  interface Offer {
+    title: string;
+    description: string;
+    price:number;
+    tags:requirements[]
+    items:string[]
+  }
 
-  const suggestions:TagesInput[] = [
+function Joboffer() {
+
+
+
+  const suggestions:requirements[] = [
     { id: "1", text: "html" },
     { id: "2", text: "css"},
     { id: "3", text: "javascript" },
@@ -35,13 +35,13 @@ const Workpost = () => {
   const delimiters = [KeyCodes.comma, KeyCodes.enter];
 
 
-  const [tags, setTags] = useState<TagesInput[]>([
+  const [tags, setTags] = useState<requirements[]>([
     
   ])
   const [inputText, setInputText] = useState('');
 
   const [items, setitems] = useState<string[]>([]) 
-  const [value, setValue] = useState<JobInput>({
+  const [value, setValue] = useState<Offer>({
     title:"",
     description:"",
     price:0,
@@ -59,7 +59,7 @@ const Workpost = () => {
       setTags(tags.filter((tag, index) => index !== i));
     };
 
-    const handleAddition = (tag: TagesInput) => {
+    const handleAddition = (tag: requirements) => {
       setTags([...tags, tag]);
       setValue((prevValue) => ({
         ...prevValue,
@@ -93,7 +93,7 @@ const Workpost = () => {
     <div className="flex">
 
     <div className="w-full p-8 flex-col mt-28">
-      <h1 className='font-lora font-bold text-2xl pl-36 max-[600px]:pl-0 max-[600px]:text-center '> Add Job </h1>
+      <h1 className='font-lora font-bold text-2xl pl-36 max-[600px]:pl-0 max-[600px]:text-center '> Offer Job </h1>
       <div className="informations">
         <ul className='w-1/3 mx-auto max-[600px]:w-full max-[600px]:p-4'>
           <li className='flex flex-col text-md font-roboto text-dark font-medium leading-5'>
@@ -123,7 +123,7 @@ const Workpost = () => {
           />
           </li>
           <li className='flex flex-col text-md font-roboto mt-8 text-dark font-medium leading-5'>
-          <label htmlFor="price" className='font-bold'> Price </label>
+          <label htmlFor="price" className='font-bold'> sallery </label>
           <input type="number" 
             className='block min-h-[auto] w-full rounded border border-grey-2 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none focus:placeholder:opacity-100 peer-focus:text-primary focus:shadow-3xl ' 
             name='price'
@@ -134,7 +134,7 @@ const Workpost = () => {
           />
           </li>
           <li className='flex flex-col text-md font-roboto mt-8 text-dark font-medium leading-5'>
-          <label htmlFor="list" className='font-bold'> List of services </label>
+          <label htmlFor="list" className='font-bold'> List of requirements </label>
   
           <div className="flex">
             <input type="text" 
@@ -150,11 +150,10 @@ const Workpost = () => {
             className="py-3 px-4 inline-flex flex-shrink-0 justify-center items-center gap-2 rounded-r-md border border-transparent font-semibold bg-night text-white hover:bg-blue focus:z-10 focus:outline-none  transition-all text-sm"
             onClick={handleListAdd} 
             >
-              Button
+              add
             </button>
           </div>
           
-                    
           <ul>
             {items? items.map((item, index)=>(
 
@@ -182,7 +181,35 @@ const Workpost = () => {
             autocomplete
           />
           </li>
+            <li className="flex flex-col text-md font-roboto mt-4 text-dark font-medium leading-5">
+            <ul className="flex max-[600px]:flex-col w-full justify-start ">
+                <li className='mx-8'>
+                <input type="checkbox" id="freelance-option" value="" className="hidden peer" required/>
+                <label htmlFor="freelance-option" 
+                className="inline-flex items-center justify-between w-full p-3 text-grey bg-transparent border-2 border-grey rounded-lg cursor-pointer peer-checked:border-grey-2 hover:text-white peer-checked:text-white peer-checked:bg-grey hover:bg-grey">                           
+                    <div className="block">
+                    <div className="w-full text-sm font-semibold">
+                        Remote
+                        <FontAwesomeIcon className='mx-2' icon={faCircle} />
+                    </div>
+                    </div>
+                </label>
+                </li>
+                <li className='mx-8'>
+                <input type="checkbox" id="company-option" value="" className="hidden peer" required/>
+                <label htmlFor="company-option" 
+                className="inline-flex items-center justify-between w-full p-3 text-grey bg-transparent border-2 border-grey rounded-lg cursor-pointer peer-checked:border-grey-2 hover:text-white peer-checked:text-white peer-checked:bg-grey hover:bg-grey">                           
+                <div className="block">
+                    <div className="w-full text-sm font-semibold">Onsite
+                    <FontAwesomeIcon className='mx-2' icon={faCircle} />
 
+                    </div>
+                    </div>
+                </label>
+                </li>
+            </ul>
+
+            </li>
           <li>
             <button type='submit' className='mt-4 px-4 py-2 border border-grey rounded-lg font-bold hover:text-grey bg-night text-white hover:bg-transparent text-md text-left'>Post Job</button>
           </li>
@@ -196,4 +223,7 @@ const Workpost = () => {
   )
 }
 
-export default Workpost
+
+
+
+export default Joboffer
