@@ -184,8 +184,8 @@ function Joboffer() {
             <li className="flex flex-col text-md font-roboto mt-4 text-dark font-medium leading-5">
             <ul className="flex max-[600px]:flex-col w-full justify-start ">
                 <li className='mx-8'>
-                <input type="checkbox" id="freelance-option" value="" className="hidden peer" required/>
-                <label htmlFor="freelance-option" 
+                <input type="checkbox" id="remote-option" value="" className="hidden peer" required/>
+                <label htmlFor="remote-option" 
                 className="inline-flex items-center justify-between w-full p-3 text-grey bg-transparent border-2 border-grey rounded-lg cursor-pointer peer-checked:border-grey-2 hover:text-white peer-checked:text-white peer-checked:bg-grey hover:bg-grey">                           
                     <div className="block">
                     <div className="w-full text-sm font-semibold">
@@ -196,11 +196,40 @@ function Joboffer() {
                 </label>
                 </li>
                 <li className='mx-8'>
-                <input type="checkbox" id="company-option" value="" className="hidden peer" required/>
-                <label htmlFor="company-option" 
+                <input type="checkbox" id="onsite-option" value="" className="hidden peer" required/>
+                <label htmlFor="onsite-option" 
                 className="inline-flex items-center justify-between w-full p-3 text-grey bg-transparent border-2 border-grey rounded-lg cursor-pointer peer-checked:border-grey-2 hover:text-white peer-checked:text-white peer-checked:bg-grey hover:bg-grey">                           
                 <div className="block">
                     <div className="w-full text-sm font-semibold">Onsite
+                    <FontAwesomeIcon className='mx-2' icon={faCircle} />
+
+                    </div>
+                    </div>
+                </label>
+                </li>
+            </ul>
+
+            </li>
+            <li className="flex flex-col text-md font-roboto mt-4 text-dark font-medium leading-5">
+            <ul className="flex max-[600px]:flex-col w-full justify-start ">
+                <li className='mx-8'>
+                <input type="checkbox" id="parttime-option" value="" className="hidden peer" required/>
+                <label htmlFor="parttime-option" 
+                className="inline-flex items-center justify-between w-full p-3 text-grey bg-transparent border-2 border-grey rounded-lg cursor-pointer peer-checked:border-grey-2 hover:text-white peer-checked:text-white peer-checked:bg-grey hover:bg-grey">                           
+                    <div className="block">
+                    <div className="w-full text-sm font-semibold">
+                        Part time
+                        <FontAwesomeIcon className='mx-2' icon={faCircle} />
+                    </div>
+                    </div>
+                </label>
+                </li>
+                <li className='mx-8'>
+                <input type="checkbox" id="fulltime-option" value="" className="hidden peer" required/>
+                <label htmlFor="fulltime-option" 
+                className="inline-flex items-center justify-between w-full p-3 text-grey bg-transparent border-2 border-grey rounded-lg cursor-pointer peer-checked:border-grey-2 hover:text-white peer-checked:text-white peer-checked:bg-grey hover:bg-grey">                           
+                <div className="block">
+                    <div className="w-full text-sm font-semibold">Full time
                     <FontAwesomeIcon className='mx-2' icon={faCircle} />
 
                     </div>

@@ -150,7 +150,7 @@ const Workpost = () => {
             className="py-3 px-4 inline-flex flex-shrink-0 justify-center items-center gap-2 rounded-r-md border border-transparent font-semibold bg-night text-white hover:bg-blue focus:z-10 focus:outline-none  transition-all text-sm"
             onClick={handleListAdd} 
             >
-              Button
+              add
             </button>
           </div>
           
