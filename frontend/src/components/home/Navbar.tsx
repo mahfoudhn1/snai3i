@@ -1,7 +1,7 @@
 import { faSignOut } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, {useState, useEffect } from 'react'
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import {useLocation} from "react-router-dom";
 
 function Navbar() {
@@ -96,8 +96,12 @@ function Navbar() {
     
 
   </div>
-
   <div className="w-full md:flex md:w-auto md:order-2">
+    <h1 className={` font-extrabold text-xl font-roboto mx-8 hover:text-grey 
+   ${scrolling || location.pathname !="/" && location.pathname.split('/').slice(1)[0] !="auth" ? "transition ease-in-out delay-150 text-night": "text-white" }
+   `}>
+      <Link to="/joboffer" > Post Job </Link>
+    </h1>
         <div>
           <button type="button" 
           className="flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800" id="user-menu-button" aria-expanded="false" aria-haspopup="true"
