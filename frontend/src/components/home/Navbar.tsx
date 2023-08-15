@@ -97,7 +97,7 @@ function Navbar() {
 
   </div>
   <div className="w-full md:flex md:w-auto md:order-2">
-    <h1 className={` font-extrabold text-xl font-roboto mx-8 hover:text-grey 
+    <h1 className={` font-extrabold text-lg font-roboto mx-8 hover:text-grey 
    ${scrolling || location.pathname !="/" && location.pathname.split('/').slice(1)[0] !="auth" ? "transition ease-in-out delay-150 text-night": "text-white" }
    `}>
       <Link to="/joboffer" > Post Job </Link>
@@ -117,7 +117,8 @@ function Navbar() {
             <li>
               <button type="button" className="inline-flex w-full px-4 py-2 text-sm text-white hover:bg-grey hover:text-grey-2 ">
                 <div className="inline-flex items-center">
-                    Profile
+                  <Link to="/profile" >Profile</Link>
+                    
                 </div>
               </button>
             </li>

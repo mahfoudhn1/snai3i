@@ -13,6 +13,7 @@ import Singup from './components/authentication/Singup';
 import Auth from './components/authentication/Auth';
 import Workpost from './components/workpost/Workpost';
 import Joboffer from './components/jobpost/Joboffer';
+import Profile from './components/profile/Profile';
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
       <Route path='/workers' element={<WorkersList/>} />
       <Route path='/postwork' element={<Workpost/>} />
       <Route path='/workers/:id' element={<Service/>} />
+      <Route path='/profile' element={<Profile/>} />
     </Routes>
 
     </>
