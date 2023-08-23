@@ -16,12 +16,16 @@ import Joboffer from './components/jobpost/Joboffer';
 import Profile from './components/profile/Profile';
 
 function App() {
+
   return (
+    
     <>
+    
     <Navbar/>
     <Routes>
-      <Route path='/' element={<Home/>} />
       <Route path='/auth/:name' element={<Auth/>}/>
+
+      <Route path='/' element={<Home/>} />
 
       <Route path='/jobs' element={<Jobs/>} />
       <Route path='/jobs/:id' element={<Jobpost/>} />

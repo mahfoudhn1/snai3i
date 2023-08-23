@@ -22,7 +22,6 @@ function Login() {
     username: '',
     password:'',
     })
-    const { isLoggedIn } = useSelector((state: RootState) => state.auth);
 
     const dispatch = useDispatch<AppDispatch>()
 
@@ -36,8 +35,8 @@ function Login() {
     const handelSubmit = ()=>{
       dispatch(login({ username: value.username, password: value.password}))    
       .then(() => {
-        // <Navigate to="/"/>
-        // window.location.reload();
+        <Navigate to="/home" replace={true}/>
+        window.location.reload();
       });
     }
   return (
@@ -55,7 +54,7 @@ function Login() {
                 type="text"
                 className="peer block min-h-[auto] w-full rounded border bg-transparent disabled:bg-transparent
                 px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 invalid:border-bubble-gum invalid:text-bubble-gum 
-                ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none  [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
+                ease-linear focus:placeholder:opacity-100 peer-focus:text-grey data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none  [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
                 id="username"
                 placeholder="username" 
                 required

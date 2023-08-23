@@ -16,15 +16,31 @@ const login = (username: string, password: string): Promise<LoginResponse>=>{
     }).then((respense )=>{
         
         if(respense.data){
-            localStorage.setItem("user", JSON.stringify(respense.data))
+            localStorage.setItem("token", JSON.stringify(respense.data))
         }
         
         return respense.data;
     })
 }
+
+const logout = ()=>{
+    return localStorage.removeItem("token")
+
+    
+}
+
+const getUser =()=>{
+    const userData = localStorage.getItem("token");
+    if (userData !== null) {
+        return JSON.parse(userData);
+    } else {
+        return null; 
+    }
+}
 const AuthService = {
     login,
-
+    logout,
+    getUser,
   }
   
   export default AuthService;

@@ -56,24 +56,11 @@ class RegisterSerializer(serializers.ModelSerializer):
         return user
 
 
-class TechnologySerializer(serializers.ModelSerializer):
-
-    class Meta:
-        model = models.Technology
-        fields = '__all__'
-
-
-class ProfisionSerilizer(serializers.ModelSerializer):
-
-    class Meta:
-        model = models.Profision
-        fields = '__all__'
 
 class ClientSerlizer(serializers.ModelSerializer):
     name = CharField(source="title", required=True)
     bio = CharField(source="description", required=False)
     email = EmailField(required=True)
-    Profisions = serializers.RelatedField(source='models.Profision', read_only=True)
 
     class Meta:
         model = models.Client

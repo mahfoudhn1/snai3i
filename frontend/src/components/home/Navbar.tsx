@@ -1,16 +1,28 @@
 import { faSignOut } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, {useState, useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux';
 import { Link, NavLink } from "react-router-dom";
 import {useLocation} from "react-router-dom";
+import { AppDispatch, RootState } from '../../redux/store';
+import { logout } from '../../redux/slices/authSlice';
 
 function Navbar() {
   const [scrolling, setScrolling] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
 
   const location = useLocation()
+  const dispatch = useDispatch<AppDispatch>();
 
-  useEffect(() => {
+  const {isLoggedIn} = useSelector((state : RootState)=>state.auth)
+
+  
+  const handelLougout = ()=>{    
+    dispatch(logout())
+    // window.location.reload();
+  }
+
+  useEffect(() => {    
     const handleScroll = () => {
       if (window.scrollY > 0) {
         setScrolling(true);
@@ -97,45 +109,54 @@ function Navbar() {
 
   </div>
   <div className="w-full md:flex md:w-auto md:order-2">
-    <h1 className={` font-extrabold text-lg font-roboto mx-8 hover:text-grey 
-   ${scrolling || location.pathname !="/" && location.pathname.split('/').slice(1)[0] !="auth" ? "transition ease-in-out delay-150 text-night": "text-white" }
-   `}>
-      <Link to="/joboffer" > Post Job </Link>
-    </h1>
-        <div>
-          <button type="button" 
-          className="flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800" id="user-menu-button" aria-expanded="false" aria-haspopup="true"
-          onClick={() => setIsOpen(!isOpen)}
-          >
-            
-            <span className="sr-only">Open user menu</span>
-            <img className="h-8 w-8 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt=""/>
+      {isLoggedIn? 
+      <div className='flex'>
+      <h1 className={` font-extrabold text-lg font-roboto mx-8 hover:text-grey 
+        ${scrolling || location.pathname !="/" && location.pathname.split('/').slice(1)[0] !="auth" ? "transition ease-in-out delay-150 text-night": "text-white" }
+        `}>
+            <Link to="/joboffer" > Post Job </Link>
+          </h1>
+              <div>
+                <button type="button" 
+                className="flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800" id="user-menu-button" aria-expanded="false" aria-haspopup="true"
+                onClick={() => setIsOpen(!isOpen)}
+                >
+                  
+                  <span className="sr-only">Open user menu</span>
+                  <img className="h-8 w-8 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt=""/>
 
-      {isOpen && (
-        <div className="absolute ease-out delay-500 right-0 px-2 flex flex-col mt-8 py-1 w-40 bg-night shadow-lg rounded-lg ">
-          <ul className="py-2 text-sm text-grey " aria-labelledby="states-button">
-            <li>
-              <button type="button" className="inline-flex w-full px-4 py-2 text-sm text-white hover:bg-grey hover:text-grey-2 ">
-                <div className="inline-flex items-center">
-                  <Link to="/profile" >Profile</Link>
-                    
-                </div>
-              </button>
-            </li>
-            <li>
-              <button type="button" className="inline-flex w-full px-4 py-2 text-sm text-white hover:bg-grey hover:text-grey-2 ">
-                  <div className="inline-flex items-center">
-                      logout
-                      <FontAwesomeIcon className='mx-2' icon={faSignOut}/>
-                  </div>
+            {isOpen && (
+              <div className="absolute ease-out delay-500 right-0 px-2 flex flex-col mt-8 py-1 w-40 bg-night shadow-lg rounded-lg ">
+                <ul className="py-2 text-sm text-grey " aria-labelledby="states-button">
+                  <li>
+                    <button type="button" className="inline-flex w-full px-4 py-2 text-sm text-white hover:bg-grey hover:text-grey-2 ">
+                      <div className="inline-flex items-center">
+                        <Link to="/profile" >Profile</Link>
+                          
+                      </div>
+                    </button>
+                  </li>
+                  <li>
+                    <button type="button" onClick={handelLougout} className="inline-flex w-full px-4 py-2 text-sm text-white hover:bg-grey hover:text-grey-2 ">
+                        <div className="inline-flex items-center">
+                            logout
+                            <FontAwesomeIcon className='mx-2' icon={faSignOut}/>
+                        </div>
+                      </button>
+                  </li>
+
+              </ul>
+              </div>
+            )}
                 </button>
-            </li>
-
-        </ul>
-        </div>
-      )}
-          </button>
-    </div>
+          </div>
+            </div>
+      :
+      <Link to="auth/login">
+        <button className=' py-2 px-4 border border-grey-2 font-roboto text-lg font-bold shadow-3xl bg-white text-dark rounded-full' > singin/singup </button>
+      </Link> 
+      }
+   
   </div>
 
   </div>

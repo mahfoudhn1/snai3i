@@ -8,15 +8,15 @@ interface User {
 
 interface AuthState {
   isLoggedIn: boolean;
-  user: User | null;
+  token: User | null;
 }
 
-const storedUser = localStorage.getItem("user");
-const user: User | null = storedUser ? JSON.parse(storedUser) : null;
+const storedToken = localStorage.getItem("token");
+const token: User | null = storedToken ? JSON.parse(storedToken) : null;
 
-const initialState: AuthState = user
-  ? { isLoggedIn: true, user }
-  : { isLoggedIn: false, user: null };
+const initialState: AuthState = token
+  ? { isLoggedIn: true, token }
+  : { isLoggedIn: false, token: null };
 
 export const login = createAsyncThunk(
   "auth/login",
@@ -24,13 +24,24 @@ export const login = createAsyncThunk(
     try {
       const data = await AuthService.login(username, password);
       
-      return { user: data };
+      return { token: data };
     } catch (error) {
       throw new Error("An error occurred during login.");
     }
   }
   
 );
+
+export const logout = createAsyncThunk("auth/logout", async () => {
+  try{
+    
+    return AuthService.logout()
+  }
+  catch{
+    throw new Error("An error occurred during logout.");
+
+  }
+});
 
 const authSlice = createSlice({
   name: "auth",
@@ -39,12 +50,16 @@ const authSlice = createSlice({
   extraReducers: (builder) => {
     builder.addCase(login.fulfilled, (state, action) => {
       state.isLoggedIn = true;
-      state.user = action.payload.user;
+      state.token = action.payload.token;
     });
     builder.addCase(login.rejected, (state) => {
       state.isLoggedIn = false;
-      state.user = null;
+      state.token = null;
     });
+    builder.addCase(logout.fulfilled,(state)=>{
+      state.isLoggedIn = false;
+      state.token = null;
+    })
   },
 });
 
