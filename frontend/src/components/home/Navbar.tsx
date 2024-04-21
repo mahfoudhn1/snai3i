@@ -39,7 +39,9 @@ function Navbar() {
 
   return (
     <>
-  <nav className={` navbar pl-20 pr-20 fixed w-full ${
+  <nav className={` navbar pl-20 pr-20 fixed w-full
+      ${ location.pathname =='/complete'? "hidden" : "" }
+      ${
         scrolling ? "transition ease-in-out delay-150 bg-white drop-shadow-md" : "bg-transparent"
       } ${ location.pathname !='/' && location.pathname.split('/').slice(1)[0] !="auth" ? "transition ease-in-out delay-150 bg-white drop-shadow-md" : "bg-transparent" }` }>
   <div className="max-w-screen-xl  flex flex-wrap items-center justify-between mx-auto p-4">

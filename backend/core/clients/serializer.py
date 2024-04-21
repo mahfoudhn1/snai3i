@@ -1,8 +1,9 @@
+from django.forms import ChoiceField
 from . import models
 from rest_framework import serializers
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 
-from rest_framework.fields import EmailField, CharField, BooleanField, IntegerField
+from rest_framework.fields import EmailField, CharField
 from django.contrib.auth.models import User
 from rest_framework.validators import UniqueValidator
 from django.contrib.auth.password_validation import validate_password
@@ -19,6 +20,11 @@ class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
 
 
 class RegisterSerializer(serializers.ModelSerializer):
+    username = serializers.CharField(write_only=True,
+                                    required=True, 
+                                    validators=[UniqueValidator(queryset=User.objects.all())]
+)
+
     email = serializers.EmailField(
             required=True,
             validators=[UniqueValidator(queryset=User.objects.all())]
@@ -55,13 +61,3 @@ class RegisterSerializer(serializers.ModelSerializer):
 
         return user
 
-
-
-class ClientSerlizer(serializers.ModelSerializer):
-    name = CharField(source="title", required=True)
-    bio = CharField(source="description", required=False)
-    email = EmailField(required=True)
-
-    class Meta:
-        model = models.Client
-        fields = '__all__'

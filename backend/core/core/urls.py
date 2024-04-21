@@ -16,10 +16,7 @@ urlpatterns += [
     path('login/', core_views.MyObtainTokenPairView.as_view()),
     path('login/refresh/', TokenRefreshView.as_view()),
     path('register/', core_views.RegisterView.as_view()),
-    path('profission/', core_views.ProfissionView.as_view()),
-    path('technology/', core_views.TechnologyView.as_view()),
-
-    path('clients/', core_views.ClientAPIView.as_view()),
+   
     
 ]
 

@@ -22,10 +22,22 @@ const login = (username: string, password: string): Promise<LoginResponse>=>{
         return respense.data;
     })
 }
+const register = ( username: string,  email:string, password: string,  password2:string, first_name:string, last_name:string )=>{
+
+    console.log(email);
+        
+    return axios.post(API_URL + 'register/', {
+        username, 
+        email , 
+        password, 
+        password2, 
+        first_name, 
+        last_name
+    })
+}
 
 const logout = ()=>{
     return localStorage.removeItem("token")
-
     
 }
 
@@ -39,6 +51,7 @@ const getUser =()=>{
 }
 const AuthService = {
     login,
+    register,
     logout,
     getUser,
   }

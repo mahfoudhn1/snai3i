@@ -1,21 +1,20 @@
 from django.db import models
 # from  django.contrib.auth.models import AbstractSet
 from django.contrib.auth.models import User
-from django_extensions.db.models import (
-	TimeStampedModel, 
-	ActivatorModel,
-	TitleDescriptionModel
-)
+
 import uuid
 from django.db.models import Avg
 
 
 # Client main model
 
-class Client(TimeStampedModel, 
-        	ActivatorModel,
-        	TitleDescriptionModel,
-            models.Model):
+CLIENT_TYPE = {
+    ("FR", "FREELANCE"),
+    ("CO", "COMPANY"),
+
+}
+
+class Client(models.Model):
     
     id = models.UUIDField(
             primary_key=True,
@@ -26,8 +25,11 @@ class Client(TimeStampedModel,
         verbose_name_plural = "Clients"
     
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    email = models.EmailField(verbose_name="Email")
- 
+    type = models.CharField(
+        max_length = 20,
+        choices = CLIENT_TYPE,
+        default = 'FR'
+        )
     
     
     def average_rating(self) -> float:
@@ -35,12 +37,12 @@ class Client(TimeStampedModel,
 
 
     def __str__(self):
-        return f'{self.title}'
+        return f'{self.id}'
 
 # Rating model
 
 class Rating(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+
     rating = models.IntegerField(default=0)
     client = models.ForeignKey(Client, on_delete=models.CASCADE)
 

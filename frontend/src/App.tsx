@@ -14,6 +14,7 @@ import Auth from './components/authentication/Auth';
 import Workpost from './components/workpost/Workpost';
 import Joboffer from './components/jobpost/Joboffer';
 import Profile from './components/profile/Profile';
+import Clientreg from './components/client/Clientreg';
 
 function App() {
 
@@ -24,7 +25,7 @@ function App() {
     <Navbar/>
     <Routes>
       <Route path='/auth/:name' element={<Auth/>}/>
-
+      <Route path='/complete' element={<Clientreg/>} />
       <Route path='/' element={<Home/>} />
 
       <Route path='/jobs' element={<Jobs/>} />
