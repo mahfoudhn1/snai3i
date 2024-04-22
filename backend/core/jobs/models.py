@@ -10,15 +10,18 @@ JOB_CHOICES = {
 }  
 
 
-default_user = User.objects.get(pk=1)
-class Jobs(models.Model):
+def get_default_user():
+    return User.objects.get(pk=1)
+
+
+class Job(models.Model):
     id = models.UUIDField(
         primary_key=True,
         default=uuid.uuid4,
         editable= False
     )
     
-    client = models.ForeignKey(User, on_delete=models.CASCADE , default= default_user)
+    client = models.ForeignKey(User, on_delete=models.CASCADE , default= get_default_user)
     title = models.CharField(max_length=200)
     description = models.CharField(max_length=500)
     company = models.CharField(max_length=200)

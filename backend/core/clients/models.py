@@ -44,7 +44,7 @@ class Client(models.Model):
 class Rating(models.Model):
 
     rating = models.IntegerField(default=0)
-    client = models.ForeignKey(Client, on_delete=models.CASCADE)
+    client = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
         return f"{self.rating}"
